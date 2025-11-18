@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"path/filepath"
 	"strings"
-	
+
 	"github.com/knadh/koanf/parsers/toml"
 	"github.com/knadh/koanf/providers/file"
 	"github.com/knadh/koanf/v2"
@@ -49,7 +49,7 @@ func (l *fileConfigLoader) Load() error {
 	var err error
 	configFile := l.configFile
 	if configFile == "" {
-		configFile, err = l.guessConfigFile()
+		configFile, err = l.findConfigFile()
 		if err != nil {
 			return err
 		}
@@ -58,30 +58,23 @@ func (l *fileConfigLoader) Load() error {
 	return l.reader.Load(file.Provider(configFile), toml.Parser())
 }
 
-func (l *fileConfigLoader) guessConfigFile() (string, error) {
-	filename := l.getDefaultConfigFileName()
-	dir := l.findConfigDir()
-	if dir == "" {
-		return "", fmt.Errorf("config dir not found, app: %s, env: %s", l.app, l.env)
-	}
-
-	return filepath.Join(dir, filename), nil
-}
-
 // getDefaultConfigFilename 缺省的配置文件名: <app>.<env>.toml
 func (l *fileConfigLoader) getDefaultConfigFileName() string {
-	return strings.Join([]string{l.app, l.env, defaultConfigType}, ".")
+	if l.env != "" {
+		return strings.Join([]string{l.app, l.env, defaultConfigType}, ".")
+	}
+	return strings.Join([]string{l.app, defaultConfigType}, ".")
 }
 
 // findConfigDirs 缺省的配置文件名: <app>.<env>
-func (l *fileConfigLoader) findConfigDir() string {
+func (l *fileConfigLoader) findConfigFile() (string, error) {
 	// iter to root directory
 	absStartPath, err := filepath.Abs(".")
 	if err != nil {
-		return ""
+		return "", err
 	}
 
-	var found string
+	var foundDir string
 	matchFile := l.getDefaultConfigFileName()
 	currPath := absStartPath
 LOOP:
@@ -92,7 +85,7 @@ LOOP:
 			checkDir := filepath.Join(currPath, dirName, matchFile)
 			matches, err := filepath.Glob(checkDir)
 			if err == nil && len(matches) > 0 {
-				found = filepath.Join(currPath, dirName)
+				foundDir = filepath.Join(currPath, dirName)
 				break LOOP
 			}
 		}
@@ -108,5 +101,9 @@ LOOP:
 		currPath = filepath.Dir(currPath)
 	}
 
-	return found
+	if foundDir == "" {
+		return "", fmt.Errorf(`config file "%s" not found`, matchFile)
+	}
+
+	return filepath.Join(foundDir, matchFile), nil
 }

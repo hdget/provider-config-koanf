@@ -13,10 +13,11 @@ const (
 	tplMinimalConfigContent = `
 [sdk]
   [sdk.logger]
-	   level = "debug"
-	   filename = "%s.log"
-	   [sdk.logger.rotate]
-		   max_age = 7`
+    level = "debug"
+	filename = "%s.log"
+	[sdk.logger.rotate]
+      max_age = 7
+      rotation_time=24`
 )
 
 type minimalConfigLoader struct {

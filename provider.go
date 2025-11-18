@@ -26,6 +26,10 @@ const (
 
 // New 初始化config provider
 func New(app string, options ...Option) (types.ConfigProvider, error) {
+	if app == "" {
+		return nil, errors.New("app is required")
+	}
+
 	provider := &koanfConfigProvider{
 		app:    app,
 		env:    os.Getenv(constant.EnvKeyRunEnvironment),
