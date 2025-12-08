@@ -83,7 +83,7 @@ LOOP:
 			// possible parent dir name
 			dirName := rootDir
 			if dirName != "." {
-				dirName = filepath.Join(rootDir, l.app)
+				dirName = filepath.Join(dirName, l.app)
 			}
 
 			checkDir := filepath.Join(currPath, dirName, matchFile)
