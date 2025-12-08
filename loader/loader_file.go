@@ -81,7 +81,11 @@ LOOP:
 	for {
 		for _, rootDir := range defaultConfigRootDirs {
 			// possible parent dir name
-			dirName := filepath.Join(rootDir, l.app)
+			dirName := rootDir
+			if dirName != "." {
+				dirName = filepath.Join(rootDir, l.app)
+			}
+
 			checkDir := filepath.Join(currPath, dirName, matchFile)
 			matches, err := filepath.Glob(checkDir)
 			if err == nil && len(matches) > 0 {
