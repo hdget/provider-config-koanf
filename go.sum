@@ -12,8 +12,6 @@ github.com/hdget/common v0.1.17 h1:VVYWBp9w4QQYK1Db6VT4mmfn/77L+9v7bd25pTRvYrE=
 github.com/hdget/common v0.1.17/go.mod h1:8FURnweoOh0mFwxB9R2PHfOXfLEuiDU7Zr3WWmSk/nc=
 github.com/knadh/koanf/maps v0.1.2 h1:RBfmAW5CnZT+PJ1CVc1QSJKf4Xu9kxfQgYVQSu8hpbo=
 github.com/knadh/koanf/maps v0.1.2/go.mod h1:npD/QZY3V6ghQDdcQzl1W4ICNVTkohC8E73eI2xW4yI=
-github.com/knadh/koanf/parsers/toml v0.1.0 h1:S2hLqS4TgWZYj4/7mI5m1CQQcWurxUz6ODgOub/6LCI=
-github.com/knadh/koanf/parsers/toml v0.1.0/go.mod h1:yUprhq6eo3GbyVXFFMdbfZSo928ksS+uo0FFqNMnO18=
 github.com/knadh/koanf/parsers/toml/v2 v2.2.0 h1:2nV7tHYJ5OZy2BynQ4mOJ6k5bDqbbCzRERLUKBytz3A=
 github.com/knadh/koanf/parsers/toml/v2 v2.2.0/go.mod h1:JpjTeK1Ge1hVX0wbof5DMCuDBriR8bWgeQP98eeOZpI=
 github.com/knadh/koanf/providers/env/v2 v2.0.0 h1:Ad5H3eun722u+FvchiIcEIJZsZ2M6oxCkgZfWN5B5KY=
@@ -28,8 +26,6 @@ github.com/mitchellh/copystructure v1.2.0 h1:vpKXTN4ewci03Vljg/q9QvCGUDttBOGBIa1
 github.com/mitchellh/copystructure v1.2.0/go.mod h1:qLl+cE2AmVv+CoeAwDPye/v+N2HKCj9FbZEVFJRxO9s=
 github.com/mitchellh/reflectwalk v1.0.2 h1:G2LzWKi524PWgd3mLHV8Y5k7s6XUvT0Gef6zxSIeXaQ=
 github.com/mitchellh/reflectwalk v1.0.2/go.mod h1:mSTlrgnPZtwu0c4WaC2kGObEpuNDbx0jmZXqmk4esnw=
-github.com/pelletier/go-toml v1.9.5 h1:4yBQzkHv+7BHq2PQUZF3Mx0IYxG7LsP222s7Agd3ve8=
-github.com/pelletier/go-toml v1.9.5/go.mod h1:u1nR/EPcESfeI/szUZKdtJ0xRNbUoANCkoOuaOx1Y+c=
 github.com/pelletier/go-toml/v2 v2.2.4 h1:mye9XuhQ6gvn5h28+VilKrrPoQVanw5PMw/TB0t5Ec4=
 github.com/pelletier/go-toml/v2 v2.2.4/go.mod h1:2gIqNv+qfxSVS7cM2xJQKtLSTLUE9V8t9Stt+h56mCY=
 github.com/pkg/errors v0.9.1 h1:FEBLx1zS214owpjy7qsBeixbURkuhQAwrK5UwLGTwt4=
