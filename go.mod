@@ -3,7 +3,7 @@ module github.com/hdget/provider-config-koanf
 go 1.24.0
 
 require (
-	github.com/hdget/common v0.1.24
+	github.com/hdget/common v0.1.25
 	github.com/knadh/koanf/parsers/toml/v2 v2.2.0
 	github.com/knadh/koanf/providers/env/v2 v2.0.0
 	github.com/knadh/koanf/providers/file v1.2.1
